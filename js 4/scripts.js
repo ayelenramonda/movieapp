@@ -2,7 +2,7 @@ const precio = parseFloat(prompt("Ingrese el precio para conocer el interés"))
 const interes = 1.10
 const cuota = parseFloat(prompt("Ingrese la cantidad de cuotas: 3, 6 o 9"))
 
-function calcularInteres(producto){
+function calcularInteres(precio){
 	return ((precio * interes)/cuota).toFixed(1)
 }
 
