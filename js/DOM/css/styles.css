@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#contacto {
+    height: 40px;	
+	background-color:#eaeaea;
+	padding-top:5px;
+  
+   
+	}
+
+ul {
+    height: 35px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    line-height: 35px;
+    justify-content: end;
+    
+
+}
+li{
+    width: 30px;
+    height: 30px; 
+    margin: 0 10px 0 10px;  
+    background-repeat: no-repeat; 
+   
+}
+
+
+.imagen {
+    width: 100px;
+    height: 100px;
+    margin:30px auto;
+    background-position: center;
+    background-size: contain;
+    
+    
+}
+#box {
+    margin:auto;
+    color: grey;
+    text-align: center;
+}
+
+.legal {
+    background-color: aliceblue;
+    height: 15px;
+    margin-top:30px;
+}
+

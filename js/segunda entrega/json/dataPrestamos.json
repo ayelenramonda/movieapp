@@ -1,0 +1,59 @@
+[
+    {
+        "nombre": "Juan Gonzalez",
+        "taza": 0,
+        "cuotas": 90,
+        "limite": 2000000,
+        "tipodeprestamo": "Personal"
+    },
+    {
+        "nombre": "Pedro Ayala",
+        "taza": 0,
+        "cuotas": 120,
+        "limite": 2800000,
+        "tipodeprestamo": "Prendario"
+    },
+    {
+        "nombre": "María de Mar Lopez",
+        "taza": 0,
+        "cuotas": 90,
+        "limite": 2000000,
+        "tipodeprestamo": "Personal"
+    },
+    {
+        "nombre": "Clara Delago",
+        "taza": 0,
+        "cuotas": 90,
+        "limite": 1000000,
+        "tipodeprestamo": "Personal"
+    },
+    {
+        "nombre": "Lucrecia Gomez",
+        "taza": 1.5,
+        "cuotas": 200,
+        "limite": 6000000,
+        "tipodeprestamo": "Hipotcario"
+    },
+    {
+        "nombre": "Roberto Nostro",
+        "taza": 5,
+        "cuotas": 90,
+        "limite": 2000000,
+        "tipodeprestamo": "Prendario"
+    },
+    {
+        "nombre": "Diego Rodriguez",
+        "taza": 0,
+        "cuotas": 30,
+        "limite": 400000,
+        "tipodeprestamo": "Prendario"
+    },
+    {
+        "nombre": "Patricio Montes",
+        "taza": 0,
+        "cuotas": 50,
+        "limite": 2000000,
+        "tipodeprestamo": "Prendario"
+    }
+
+]
