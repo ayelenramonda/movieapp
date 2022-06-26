@@ -10,7 +10,7 @@ const ItemCount = ({stockTotal, initial = 0, onAdd}) =>{
         if(stock < stockTotal){
             setStock(stock + 1)
             document.querySelector(".btnCarrito").style.display="block"
-            document.querySelector("#detalleCarrito").style.display="block"
+            
             }
         if(stock >= stockTotal){
             alert("Llegaste al límite")
@@ -19,7 +19,7 @@ const ItemCount = ({stockTotal, initial = 0, onAdd}) =>{
     
     const quitar = () =>{
         if(stock <= stockTotal){
-        setStock(stock-1)
+        setStock(stock - 1)
         } 
         if (stock <= 1){
             setStock(initial)

@@ -9,7 +9,8 @@ const ItemListContainer = ({lista, mostrar}) =>{
 
     const onAdd = (mensaje) =>{
         
-        document.getElementById("detalleCarrito").innerHTML= mensaje     
+        document.getElementById("detalleCarrito").innerHTML= mensaje  
+        document.querySelector("#detalleCarrito").style.display="block"   
     }
     
 
