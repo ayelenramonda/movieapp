@@ -155,56 +155,53 @@ h1{
 
 }
 
-.cards, .cards2, .cards3, .cards4 {
-    width: 100%;
-    height: 460px;
-    background-image: url("../../assets/movies/gladiator.jpg");
-    background-position: top;
-    background-size: cover;
-    box-sizing: border-box;
-    background-repeat: no-repeat;
+.cards {
+    height: 100%;    
     margin: 5px;
     display: flex;
     flex-direction: column;
 }
-.cards2{
-    background-image: url("../../assets/movies/avatar.jpg");
+
+.imgCards{
+    width:  100%; 
+    height: 100%;    
+    
+ 
 
 }
-.cards3{
-    background-image: url("../../assets/movies/harrypotter-Piedrafilosofal.jpg");
 
-}
-.cards4{
-    background-image: url("../../assets/movies/naufrago.jpg");
-
-}
 
 .cardsContain{
-    width: 100%;
-    display:flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(182px, auto));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    align-items: center;
+    box-sizing: border-box;
+    margin:10px;
+   
+    
+   
 
 }
 
-.cardsContain h3{
-    width: calc(100% - 5px);
-    background-color:  rgba(33, 0, 37, 0.521);
+.cardsContain h3{   
+    background-color:  rgba(33, 0, 37, 1);
     border-bottom: 1px solid rgb(155, 0, 155); 
     padding: 10px 0 10px 5px;
     font-weight: 300;
     color:white;
-    font-size: 1.5rem;
+    font-size: 14px;
     text-transform: uppercase;
-    margin: 340px auto 5px;
+    margin:0;
+    
 }
 
 .cardsContain p{
-    font-size: 1.5rem;
-    color:white;
-    font-weight: 700;
-    margin: 0;
-    padding-left:5px;
+    font-size: 14px;
+    color:rgb(86, 65, 105);
+    margin: 10px auto 0;;
+    
 }
 
 section {
