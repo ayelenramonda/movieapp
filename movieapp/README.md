@@ -5,6 +5,10 @@ Solo registrandose se puede acceder a contenidos gratis.
 
 # Progreso
 
+### `API LOCAL  y spinner`
+
+Agregué un json local y un spinner de espera
+
 ### `CardProduct`
 
 Agregué algunas imagenes para ir mostrando como se vería el contenido
