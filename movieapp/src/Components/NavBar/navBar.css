@@ -30,6 +30,10 @@ ul, li{
     
 
 }
+li{
+    margin:  0 20px 0 20px;
+}
+
 
 ul{
     display: flex;
@@ -43,6 +47,7 @@ a{
     text-decoration: none;
     display: flex;
     justify-content: center;
+    margin: 0 20px 0 20px;
     
 }
 
@@ -160,6 +165,13 @@ h1{
     margin: 5px;
     display: flex;
     flex-direction: column;
+}
+.cardDetail{
+    width: 300px;    
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .imgCards{

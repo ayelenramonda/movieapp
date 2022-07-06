@@ -5,6 +5,10 @@ Solo registrandose se puede acceder a contenidos gratis.
 
 # Progreso
 
+### `ItemDetailContent ItemDetail`
+
+Cambié el json por una API, traigo la información y muestro una sola en ItemDetail
+
 ### `API LOCAL  y spinner`
 
 Agregué un json local y un spinner de espera

@@ -9,13 +9,8 @@ const ItemList = ({movies}) =>{
     return(
         
             <div className="cardsContain">
-            {movies.map(movie => (<Item key={movie.id}movie={movie}></Item>))}
+            {movies.map(movi => (<Item key={movi.id}{...movi}></Item>))}
             </div>
-
-
-        
-
-
     )
 }
 
