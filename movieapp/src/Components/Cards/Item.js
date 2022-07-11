@@ -1,20 +1,32 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 import '../NavBar/navBar.css'
 
 
+
+
+
 const API_IMG ="https://image.tmdb.org/t/p/w500/"
-const List = ({title, poster_path, overview, original_title, popularity, vote_average, release_date}) => {
+const List = ({movie}) => {
+    
+
 
     return(
         
         <div className="cards" >
+          
+            <img className="imgCards" src={API_IMG+movie.poster_path} alt="poster"></img>              
+            <h3>{movie.title}</h3>
+            <p>{movie.release_date}</p> 
+                
+           
             
-            <img className="imgCards" src={API_IMG+poster_path} alt="poster"></img>              
-            <h3>{title}</h3>
-            <p>{release_date}</p>
+           <Link to={"/movie/" + movie.id}>            
+            <button className="agregar">Ver más</button>
+            </Link>  
             
-                            
-            <button className="agregar">agregar</button>
+            
+            
          </div>
         
 

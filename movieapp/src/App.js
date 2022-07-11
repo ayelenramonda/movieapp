@@ -22,10 +22,11 @@ function App() {
         <Routes>
             <Route path="/" element={<ItemListContainer lista="Películas clásicas" mostrar={listaContainer}  greeting={'My Movie App'}/>} />
             <Route path="/category/:categoryName" element={<ItemListContainer lista="Películas clásicas" mostrar={listaContainer}  greeting={'My Movie App'}/>} />
-            <Route path="" element={<ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>} />
+            <Route path="/movie/:movieId" element={<ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>} />
+            <Route path="/serie/:seriesId" element={<ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>} />
             <Route path="/Cart" element={<Cart />} />          
         </Routes>
-        <ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>
+        
   </BrowserRouter> }
   
   </>
