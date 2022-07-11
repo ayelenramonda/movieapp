@@ -5,6 +5,10 @@ Solo registrandose se puede acceder a contenidos gratis.
 
 # Progreso
 
+### `Primer preentrega`
+
+Cada pelicula seleccionada abre su detalle y da la opcion para comprar.
+
 ### `ItemDetailContent ItemDetail`
 
 Cambié el json por una API, traigo la información y muestro una sola en ItemDetail
