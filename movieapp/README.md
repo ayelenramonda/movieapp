@@ -5,6 +5,10 @@ Solo registrandose se puede acceder a contenidos gratis.
 
 # Progreso
 
+### `Agregar al carrito`
+
+Desde ItelDetail se agrega el producto
+
 ### `Primer preentrega`
 
 Cada pelicula seleccionada abre su detalle y da la opcion para comprar.
