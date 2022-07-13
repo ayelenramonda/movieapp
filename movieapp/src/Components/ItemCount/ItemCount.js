@@ -5,6 +5,8 @@ const ItemCount = ({stockTotal, initial = 0, onAdd}) =>{
 
     const [ stock, setStock ] = useState(initial)
 
+  
+
     const agregar = () =>{
         if(stock < stockTotal){
             setStock(stock + 1)
@@ -34,6 +36,9 @@ const ItemCount = ({stockTotal, initial = 0, onAdd}) =>{
         }
         
     }
+    const agregarAlCarrito = ()=>{
+        onAdd(stock)
+    }
 
 return(
         <>
@@ -43,7 +48,7 @@ return(
             <button className="btnCantidad" onClick={agregar}>+</button>
         </div>
         
-        <button className="btnCarrito" onClick={() => {onAdd(`Cantidad seleccionada de productos: ${stock}`)}}>comprar</button>
+        <button className="btnCarrito" onClick={() => agregarAlCarrito()}>AGREGAR AL CARRITO</button>
         <div id="carritoVacio">No hay nada en el carrito</div>
         <div id="carritoLleno">No hay más stock</div>
         <div id="detalleCarrito"></div>

@@ -1,7 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import '../NavBar/navBar.css'
 import { useParams } from 'react-router-dom'
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from 'react-router-dom'
 
 
 
@@ -12,8 +14,11 @@ export const ItemDetail = ({title, poster_path, overview, release_date, homepage
     
     console.log(movieId)
 
-    const onAdd = (mensaje) =>{        
-        document.getElementById("detalleCarrito").innerHTML= mensaje  
+    const [finalizar, setFinalizar] = useState(false)
+
+    const onAdd = (stock) =>{
+        setFinalizar(true)
+        console.log("agregado", stock)  
         document.querySelector("#detalleCarrito").style.display="block"   
     }
 
@@ -29,9 +34,11 @@ export const ItemDetail = ({title, poster_path, overview, release_date, homepage
             <span className="date">{release_date}</span>
             <p>{overview}</p>
             <p><strong>{homepage}</strong></p>
+            {!finalizar ? <ItemCount stockTotal={10}  onAdd={onAdd} /> : 
+           <Link to="/Cart"> <button className="btnAgregar">COMPRAR</button></Link>}
           
 
-            <ItemCount stockTotal={10}  onAdd={onAdd}></ItemCount>
+            
             </div>
             
             

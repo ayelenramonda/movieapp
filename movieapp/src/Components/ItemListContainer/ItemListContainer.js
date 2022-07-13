@@ -19,7 +19,8 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
    
     useEffect(() => {
            
-        const ruta = categoryName ? `https://api.themoviedb.org/3/movie/${categoryName}?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4` : 'https://api.themoviedb.org/3/movie/popular?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4'
+        const ruta = categoryName ? `https://api.themoviedb.org/3/movie/${categoryName}?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4` 
+                                  : 'https://api.themoviedb.org/3/movie/popular?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4'
         
         console.log(ruta)  
             fetch(ruta)  

@@ -114,7 +114,7 @@ h1{
 
 }
 .btnCarrito{
-    width: 126px;
+    width: 100%;
     height: 35px;
     background-color: rgb(116, 15, 116);
     color:white;
@@ -125,6 +125,18 @@ h1{
     text-transform: uppercase;
    
 }
+.btnAgregar{
+    width: 100%;
+    height: 35px;
+    background-color: rgb(116, 15, 116);
+    color:white;
+    border: none;
+    line-height: 35px;
+    align-items: center;
+    text-transform: uppercase;
+   
+}
+
 
 
 
