@@ -33,16 +33,17 @@ const CartCustomProvider = ({ children }) => {
             setMovies([...movies, movie])
         }
     }
-    
-        
-    
     console.log("carrito", movies)
     
 
     const deleteMovie = (id) => {
-        setMovies(movies.filter(movie => movie.id !== id))
+        const newCart = (movies.filter(movie => movie.id !== id))
+        setMovies(newCart)
+        
         
     };
+
+    
 
     const isInCart = (id) => {
         movies.some(movie => movie.id === id)

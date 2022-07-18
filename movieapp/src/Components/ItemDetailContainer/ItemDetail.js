@@ -10,7 +10,7 @@ import { cartContext } from "../Context/CartContext";
 
 
 const API_IMG ="https://image.tmdb.org/t/p/w500/"
-export const ItemDetail = ({title, poster_path, overview, release_date, homepage, genres, movies}) =>{
+export const ItemDetail = ({title, id, poster_path, overview, release_date, homepage, genres, movies, original_title}) =>{
     const { movieId } = useParams()
     
     console.log(movieId)
@@ -19,8 +19,11 @@ export const ItemDetail = ({title, poster_path, overview, release_date, homepage
     const { addMovie } = useContext(cartContext);
 
     const onAdd = (stock) =>{
-        addMovie({...movieId, qty: stock})
+        let item = {id: id, name: title, stock: stock, description: overview};
+        addMovie( item );
+        //addMovie({...movies, qty: stock})
         setFinalizar(true)
+        console.log(item)
         
           
     }
