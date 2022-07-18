@@ -196,9 +196,16 @@ h1{
    
     
 }
-#detalleCarrito{
+#detalleCarrito {
     color:rgb(116, 15, 116);
     margin-top: 20px;
+
+}
+
+.duplicados{
+    color:rgb(116, 15, 116);
+    margin-top: 20px;
+    display: none;
 
 }
 #carritoVacio, #carritoLleno{

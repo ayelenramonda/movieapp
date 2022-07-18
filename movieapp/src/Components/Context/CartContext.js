@@ -22,14 +22,10 @@ const CartCustomProvider = ({ children }) => {
    
 
     const addMovie = (movie) => {
-        if (isInCart(movie.id)){
-            const found = movies.find(m => m.id === movie.id)
-            const index = movies.indexOf(found)
-            const mod = [...movies]
-            mod[index.qty] += movie.qty 
-            setMovies(mod)
-
-        }else{
+        if (movies.find(obj => obj.id === movie.id)){
+            document.querySelector(".duplicados").style.display="block"
+        }
+       else{
             setMovies([...movies, movie])
         }
     }
@@ -37,18 +33,18 @@ const CartCustomProvider = ({ children }) => {
     
 
     const deleteMovie = (id) => {
-        const newCart = (movies.filter(movie => movie.id !== id))
+        const newCart = movies.filter(movie => movie.id !== id)
         setMovies(newCart)
         
         
     };
 
     
-
+/*
     const isInCart = (id) => {
         movies.some(movie => movie.id === id)
     };
-
+*/
     const clear = () => {
         setMovies([]);
     }

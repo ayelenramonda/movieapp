@@ -40,7 +40,7 @@ export const ItemDetail = ({title, id, poster_path, overview, release_date, home
             {finalizar ? <Link to="/Cart"> <button className="btnAgregar">COMPRAR</button></Link> 
                         : <ItemCount stockTotal={10}  onAdd={onAdd} />
            }
-          
+            <div className="duplicados">Este producto ya esta agregado</div>
 
             
             </div>
