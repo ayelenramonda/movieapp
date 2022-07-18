@@ -22,6 +22,8 @@ const Cart = () =>{
             <div>
             <h3>{movie.name}</h3>
             <p>Cantidad seleccionada:<strong> {movie.stock}</strong></p>
+            <p>{movie.description}</p>
+            <h5>Precio ${movie.price}</h5>
             <button className="btnEliminar" value={movie.id} onClick={removeFromCart}>Eliminar</button>
             </div>
          </div>)}</>

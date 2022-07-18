@@ -284,6 +284,12 @@ h3{
     margin: 30px 0 0 0;
 }
 
+h5{
+    color:rgb(67, 57, 153); 
+    font-size: 14px;
+
+}
+
 .cardsContain h3{   
     background-color:  rgba(33, 0, 37, 1);
     border-bottom: 1px solid rgb(155, 0, 155); 
