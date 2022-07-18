@@ -8,6 +8,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import CartCustomProvider from './Components/Context/CartContext'
 
 
 const listaContainer = () => console.log("Casablanca, Gladiador, Volver al futuro")  
@@ -17,6 +18,7 @@ function App() {
   return ( <>
    
     {<BrowserRouter>
+        <CartCustomProvider>
         <NavBar /> 
        
         <Routes>
@@ -26,6 +28,7 @@ function App() {
             <Route path="/serie/:seriesId" element={<ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>} />
             <Route path="/Cart" element={<Cart />} />          
         </Routes>
+        </CartCustomProvider>
         
   </BrowserRouter> }
   
