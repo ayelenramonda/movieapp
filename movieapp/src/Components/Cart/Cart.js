@@ -7,6 +7,11 @@ import { cartContext } from "../Context/CartContext";
 
 const Cart = () =>{
     const { movies, deleteMovie, clear } = useContext(cartContext)
+    
+    const removeFromCart = (e) => {
+        deleteMovie( e.target.value );
+      }
+  
 
    
     return(
@@ -17,14 +22,8 @@ const Cart = () =>{
             <div>
             <h3>{movie.name}</h3>
             <p>Cantidad seleccionada:<strong> {movie.stock}</strong></p>
-            <button className="btnEliminar" value={movie.id} onClick={deleteMovie}>Eliminar</button>
+            <button className="btnEliminar" value={movie.id} onClick={removeFromCart}>Eliminar</button>
             </div>
-            
-            
-            
-         
-         
-         
          </div>)}</>
          
             

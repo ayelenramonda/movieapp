@@ -35,6 +35,7 @@ const CartCustomProvider = ({ children }) => {
     const deleteMovie = (id) => {
         const newCart = movies.filter(movie => movie.id !== id)
         setMovies(newCart)
+        console.log(id)
         
         
     };
