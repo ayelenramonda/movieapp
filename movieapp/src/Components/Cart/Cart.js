@@ -21,7 +21,7 @@ const Cart = () =>{
          : <>{movies.map(movie => <div key={movie.id} className="card">
             <div>
             <h3>{movie.name}</h3>
-            <p>Cantidad seleccionada:<strong> {movie.stock}</strong></p>
+            <p>Cantidad seleccionada:<strong> {movie.qty}</strong></p>
             <p>{movie.description}</p>
             <h5>Precio ${movie.price}</h5>
             <button className="btnEliminar" value={movie.id} onClick={removeFromCart}>Eliminar</button>
@@ -30,7 +30,15 @@ const Cart = () =>{
          
             
     }
-    <div><button  className="btnVaciar" onClick={clear}>Vaciar carrito</button></div>
+        {movies.length !== 0 
+        ? <div><button  className="btnFinalizar" >Finalizar compra</button></div>
+        : null}
+        
+        {movies.length !== 0 
+        ? <div><button  className="btnVaciar" onClick={clear}>Vaciar carrito</button></div>
+        : null}
+
+        
         </>
     )
 }

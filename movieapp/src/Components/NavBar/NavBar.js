@@ -21,7 +21,7 @@ const NavBar = () =>{
             <li>{categories.map((category) => <NavLink key={category.id} to={category.route}>{category.name}</NavLink>)}</li>
             
         </ul>
-        <Link to="/cart"><CartWidget /></Link>
+        <Link className="cartNumber" to="/cart"><CartWidget /></Link>
         
         </nav>
        

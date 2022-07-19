@@ -4,6 +4,25 @@ img {
     line-height: 30px;
     display: flex;
     margin-left: auto;
-    margin-right: 20px;
+  
 
+}
+
+.cartNumber{
+    
+    display: flex;
+    color:purple;
+    font-weight: 700;
+    height: 30px;
+    margin-right: 10px;
+    line-height: 30px;
+    
+}
+
+.cartNumber p{
+    color: rgb(93, 3, 153);
+    font-weight: 700;
+    line-height: 15px;
+    font-size: 15px;
+    
 }

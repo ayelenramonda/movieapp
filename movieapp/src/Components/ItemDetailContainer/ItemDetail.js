@@ -19,9 +19,8 @@ export const ItemDetail = ({title, id, poster_path, overview, release_date, home
     const { addMovie } = useContext(cartContext);
 
     const onAdd = (stock) =>{
-        let item = {id: id, name: title, stock: stock, description: overview, price: vote_count};
+        let item = {id: id, name: title, qty: stock, description: overview, price: vote_count};
         addMovie( item );
-        //addMovie({...movies, qty: stock})
         setFinalizar(true)
         console.log(item)
         
@@ -37,7 +36,7 @@ export const ItemDetail = ({title, id, poster_path, overview, release_date, home
             <span className="date">{release_date}</span>
             <p>{overview}</p>
             <p><strong>{homepage}</strong></p>
-            {finalizar ? <Link to="/Cart"> <button className="btnAgregar">COMPRAR</button></Link> 
+            {finalizar ? <Link to="/Cart"> <button className="btnAgregar" id="comprar">COMPRAR</button></Link> 
                         : <ItemCount stockTotal={10}  onAdd={onAdd} />
            }
             <div className="duplicados">Este producto ya esta agregado</div>

@@ -10,7 +10,9 @@ const CartCustomProvider = ({ children }) => {
 
    const getQtyMovies = () => {
         let qty = 0
-        movies.forEach(movie => qty += movie.qty)
+        movies.forEach(movie => {
+            qty += movie.qty
+        })
         setQtyMovies(qty)
         
     }
@@ -22,10 +24,20 @@ const CartCustomProvider = ({ children }) => {
    
 
     const addMovie = (movie) => {
-        if (movies.find(obj => obj.id === movie.id)){
-            document.querySelector(".duplicados").style.display="block"
+        if (isInCart(movie.id)){
+            const found = movies.find(obj => obj.id === movie.id)
+            const index = movies.indexOf(found)
+            const aux = [...movies]
+            aux[index].qty += movie.qty
+            
+            setMovies(aux)
         }
-       else{
+
+        //if (movies.find(obj => obj.id === movie.id)){
+           // document.querySelector(".duplicados").style.display="block"
+        
+       else{       
+            
             setMovies([...movies, movie])
         }
     }
@@ -33,7 +45,7 @@ const CartCustomProvider = ({ children }) => {
     
 
     const deleteMovie = (id) => {
-        const newCart = movies.filter(movie => movie.id !== id)
+        const newCart = movies.filter(movie => movie.id !== parseInt(id))
         setMovies(newCart)
         console.log(id)
         
@@ -41,17 +53,18 @@ const CartCustomProvider = ({ children }) => {
     };
 
     
-/*
+
     const isInCart = (id) => {
         movies.some(movie => movie.id === id)
     };
-*/
+
     const clear = () => {
         setMovies([]);
+        setQtyMovies(0)
     }
 
     return (
-        <Provider value={{ movies, addMovie, deleteMovie, clear, qtyMovies }}>
+        <Provider value={{ movies, addMovie, deleteMovie, clear, qtyMovies}}>
             {children}
         </Provider>
     )
