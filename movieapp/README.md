@@ -1,9 +1,17 @@
 # My MovieApp
 
-Movie App me va a permitir comprar o alquilar peliculas, series o cualquier contenido deportivo.
-Solo registrandose se puede acceder a contenidos gratis.
+Movie App me va a permitir comprar peliculas entre clasicas y populares.
+Solo registrandose se puede acceder a algunos contenidos gratis.
 
 # Progreso
+
+### `Contador del icono de cart`
+
+Cuando se agrega un producto el icono del cart comienza a contar las peliculas
+
+### `Desarrollo de carrito`
+
+Se agregaron los componentes del cart, se puede eliminar items y finalizar compra.
 
 ### `Agregar al carrito`
 
