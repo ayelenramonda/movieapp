@@ -12,31 +12,49 @@ const Cart = () =>{
         deleteMovie( e.target.value );
       }
   
-
-   
+      let total = 0;
+      
+      
+      
     return(
         <>
         {movies.length === 0
          ? <Link to="/" ><h3>No hay nada todavia, hacé click y elegí una peli</h3></Link>
-         : <>{movies.map(movie => <div key={movie.id} className="card">
+         : <>{movies.map(movie => {
+
+            total = total + movie.price;
+            return(
+            <div key={movie.id} className="card">
             <div>
             <h3>{movie.name}</h3>
             <p>Cantidad seleccionada:<strong> {movie.qty}</strong></p>
             <p>{movie.description}</p>
             <h5>Precio ${movie.price}</h5>
             <button className="btnEliminar" value={movie.id} onClick={removeFromCart}>Eliminar</button>
+            
             </div>
-         </div>)}</>
+         </div>)})}</>
          
             
     }
+
+
         {movies.length !== 0 
-        ? <div><button  className="btnFinalizar" >Finalizar compra</button></div>
+        ? <button  className="btnFinalizar">Finalizar compra</button>
+        : null}
+        
+        
+        {movies.length !== 0 
+        ? <p><strong>COSTO TOTAL: </strong>${total}</p>
         : null}
         
         {movies.length !== 0 
         ? <div><button  className="btnVaciar" onClick={clear}>Vaciar carrito</button></div>
         : null}
+
+
+
+              
 
         
         </>
