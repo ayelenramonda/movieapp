@@ -24,7 +24,13 @@ const CartCustomProvider = ({ children }) => {
    
 
     const addMovie = (movie) => {
-        if (isInCart(movie.id)){
+
+        if (movies.find(obj => obj.id === movie.id)){
+            document.querySelector(".duplicados").style.display="block"
+            document.querySelector(".btnAgregar").style.display="none"
+        }
+
+       if (isInCart(movie.id)){
             const found = movies.find(obj => obj.id === movie.id)
             const index = movies.indexOf(found)
             const aux = [...movies]
@@ -33,8 +39,7 @@ const CartCustomProvider = ({ children }) => {
             setMovies(aux)
         }
 
-        //if (movies.find(obj => obj.id === movie.id)){
-           // document.querySelector(".duplicados").style.display="block"
+       
         
        else{       
             
