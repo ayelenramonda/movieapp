@@ -5,6 +5,10 @@ Solo registrandose se puede acceder a algunos contenidos gratis.
 
 # Progreso
 
+### `Cambie API por firebase`
+
+Los datos ahora los trae desde firebase
+
 ### `Contador del icono de cart`
 
 Cuando se agrega un producto el icono del cart comienza a contar las peliculas
