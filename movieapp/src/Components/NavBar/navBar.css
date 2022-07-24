@@ -330,3 +330,33 @@ section {
 }
 
 
+
+.swal-button {
+    padding: 7px 19px;
+    background-color: #340070;
+    font-size: 14px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 0px;
+    border: 0px solid #ffffff00;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  .swal-button:hover {
+    background-color: #a600e7;
+    
+    
+  }
+  .swal-button:focus {
+    border: white;
+    
+    
+  }
+
+  .swal-modal {
+  font-family: 'Roboto', sans-serif;
+  }
+  .swal-overlay {
+    background-color: rgba(11, 0, 32, 0.603);
+  }
+

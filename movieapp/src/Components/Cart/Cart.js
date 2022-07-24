@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useState }from "react";
 import '../NavBar/navBar.css'
 import { useContext } from "react";
 import { Link } from 'react-router-dom'
 import { cartContext } from "../Context/CartContext";
+import swal from 'sweetalert';
+import { db } from "../../firebase/firebase"
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 
 
 const Cart = () =>{
     const { movies, deleteMovie, clear } = useContext(cartContext)
+
+    
+
+
+
     
     const removeFromCart = (e) => {
-        deleteMovie( e.target.value );
-      }
+        
+       swal({
+            title: "¿Seguro que queres borrar esta peli?",
+            text: "Igual tranqui, si te arrepentis la podés buscar de nuevo",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            console.log("acadeberiaborrar")
+            if (willDelete) {
+              swal("Lisssto", {
+                icon: "success",
+              });
+            deleteMovie(e.target.value); 
+            
+              
+            } else {
+              swal({title:"¡Llevate todo!"});
+              
+            }
+          });
+        
+    }
   
       let total = 0;
       
@@ -30,14 +60,19 @@ const Cart = () =>{
             <p>Cantidad seleccionada:<strong> {movie.qty}</strong></p>
             <p>{movie.description}</p>
             <h5>Precio ${movie.price}</h5>
-            <button className="btnEliminar" value={movie.id} onClick={removeFromCart}>Eliminar</button>
+            <button className="btnEliminar" value={movie.id} onClick={removeFromCart} >Eliminar</button>
+  
             
             </div>
          </div>)})}</>
          
             
     }
+         
+         
+         
 
+   
 
         {movies.length !== 0 
         ? <button  className="btnFinalizar">Finalizar compra</button>

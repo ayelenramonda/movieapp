@@ -3,6 +3,8 @@ import '../NavBar/navBar.css'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
 import Loading from "../Loading/Loading"
+import { db } from "../../firebase/firebase"
+import { getDoc, collection, doc } from "firebase/firestore";
 
 
 
@@ -20,17 +22,15 @@ export const ItemDetailContainer = ({greeting}) =>{
     
    
     useEffect(() => {
-        const URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4`
-        console.log(URL)
-            fetch(URL)        
-            .then(response => response.json())           
-            .then(data =>{ 
-                //console.log(data)
-                setMovies(data)
-                console.log(data)
-                
-            
+        const moviesCollection = collection(db, 'movies');
+        const refDoc = doc(moviesCollection, movieId)
+        getDoc(refDoc).then(result => {
+            setMovies({
+                id: result.id,
+                ...result.data(),
             })
+           
+        })
             
             .catch(err => console.error(err))
             .finally(()=> setLoading(false))

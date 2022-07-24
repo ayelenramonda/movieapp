@@ -3,6 +3,9 @@ import '../NavBar/navBar.css'
 import ItemList from "../Cards/ItemList"
 import Loading from "../Loading/Loading"
 import { useParams } from 'react-router-dom'
+import { db } from "../../firebase/firebase"
+import { getDocs, collection, query, where } from "firebase/firestore";
+import Trailer from "../Trailer/Trailer";
 
 
 
@@ -18,8 +21,30 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
 
    
     useEffect(() => {
-           
-        const ruta = categoryName ? `https://api.themoviedb.org/3/movie/${categoryName}?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4` 
+
+
+        //const moviesCollection = collection(db, 'movies')
+        const que = categoryName 
+            ? query(collection(db, 'movies'), where('category', '==', categoryName))
+            : collection(db, 'movies')
+
+        getDocs(que)
+        .then ( result => {
+            const lista = result.docs.map(doc => {
+            return{
+                id: doc.id,
+                ...doc.data(),
+                        }
+                    })
+            setMovies(lista)
+                })
+                .catch(err => console.error(err))
+                .finally(()=> setLoading(false))
+
+
+
+
+        /*const ruta = categoryName ? `https://api.themoviedb.org/3/movie/${categoryName}?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4` 
                                   : 'https://api.themoviedb.org/3/movie/popular?api_key=c7bc32cb271e85e8a5ce9bd75a0f66d4'
         
         console.log(ruta)  
@@ -34,7 +59,7 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
             
             })
             .catch(err => console.error(err))
-            .finally(()=> setLoading(false))
+            .finally(()=> setLoading(false))*/
             
     }, [categoryName]);
 
@@ -49,10 +74,11 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
             {/*<h1>{lista}</h1>
             <button className="btn" onClick={mostrar}>mostrar</button>  */}
            
-            <h1>{greeting}</h1>
+            <h1>{}</h1>
            
 
             {loading ? <Loading /> : <ItemList movies={movies}></ItemList>}
+            <Trailer movies={movies}></Trailer>
             
             
             

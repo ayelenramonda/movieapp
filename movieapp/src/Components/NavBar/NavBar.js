@@ -7,11 +7,12 @@ import { Link, NavLink } from "react-router-dom"
 const NavBar = () =>{
 
     const categories =  [
-        {name: "Películas", id: 0, route: "/category/popular"},
+        {name: "Populares", id: 0, route: "/category/popular"},
         {name: "Más votadas", id: 1, route: "/category/top_rated"},
         {name: "Lo que se viene", id: 2, route: "/category/upcoming"},
         
     ]
+    console.log(categories.name)
     return(
        
         

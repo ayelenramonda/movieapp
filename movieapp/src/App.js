@@ -9,6 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import CartCustomProvider from './Components/Context/CartContext'
+import Trailer from './Components/Trailer/Trailer';
 
 
 const listaContainer = () => console.log("Casablanca, Gladiador, Volver al futuro")  
@@ -19,13 +20,13 @@ function App() {
    
     {<BrowserRouter>
         <CartCustomProvider>
-        <NavBar /> 
+        <NavBar />
+        
        
         <Routes>
             <Route path="/" element={<ItemListContainer lista="Películas clásicas" mostrar={listaContainer}  greeting={'My Movie App'}/>} />
             <Route path="/category/:categoryName" element={<ItemListContainer lista="Películas clásicas" mostrar={listaContainer}  greeting={'My Movie App'}/>} />
             <Route path="/movie/:movieId" element={<ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>} />
-            <Route path="/serie/:seriesId" element={<ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>} />
             <Route path="/Cart" element={<Cart />} />          
         </Routes>
         </CartCustomProvider>
