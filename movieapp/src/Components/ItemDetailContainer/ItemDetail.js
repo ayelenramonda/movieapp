@@ -29,12 +29,14 @@ export const ItemDetail = ({title, id, poster_path, overview, release_date, cate
 
 
     return(
+        
         <div className="cardDetail">
             <img  className="imgDetails" src={API_IMG+poster_path} alt="poster"></img>
             <div className="details">           
             <h3>{title}</h3>
-            <h4>{category}</h4>
             <span className="date">{release_date}</span>
+            <h4>${price}</h4>
+            
             <p>{overview}</p>
             
             {finalizar ? <Link to="/Cart"> <button className="btnAgregar" id="comprar">COMPRAR</button></Link> 

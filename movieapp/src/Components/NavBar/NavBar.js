@@ -12,7 +12,7 @@ const NavBar = () =>{
         {name: "Lo que se viene", id: 2, route: "/category/upcoming"},
         
     ]
-    console.log(categories.name)
+   
     return(
        
         

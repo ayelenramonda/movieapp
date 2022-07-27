@@ -1,19 +1,81 @@
-import React, { useState }from "react";
+import React, { useState, useEffect }from "react";
 import '../NavBar/navBar.css'
 import { useContext } from "react";
 import { Link } from 'react-router-dom'
 import { cartContext } from "../Context/CartContext";
 import swal from 'sweetalert';
 import { db } from "../../firebase/firebase"
-import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, addDoc,serverTimestamp} from "firebase/firestore";
+
+
 
 
 const Cart = () =>{
-    const { movies, deleteMovie, clear } = useContext(cartContext)
+   const { movies, deleteMovie, clear } = useContext(cartContext)
+
+   const [ total, setTotal ] = useState(null);
+   
+      const inputs = [
+        {
+          label: "Nombre",
+          name: "name"
+        },
+        {
+            label: "Apellido",
+            name: "surname"
+          },
+          {
+            label: "DNI",
+            name: "dni"
+          },
+        {
+          label: "Telefono",
+          name: "phone"
+        },
+        {
+          label: "Email",
+          name: "email"
+        },
+      ];
+    
+      const [formFields, setFormFields] = useState({
+        name: "",
+        surname: "",
+        dni: "",
+        phone: "",
+        email: ""
+      });
+    
+      function ingresarDatos(evt) {
+        setFormFields({ ...formFields, [evt.target.name]: evt.target.value });
+      }
+
+     
+    
+      function onSubmit(evt) {
+         swal("Tu pedido se realizó con éxito", `La compra se registró a nombre de ${formFields.name} ${formFields.surname}. Teléfono: ${formFields.phone} Email: ${formFields.email} por el valor total de ${calculateTotal(movies)}.`,  "success"
+         
+         )
+         clear()
+        
+        
+  
+        const compra = {
+          Buyer: {Name: formFields.name, Surname: formFields.surname, Phone: formFields.phone, dni: formFields.dni, Email: formFields.email},
+          date: serverTimestamp(),
+          Items: movies,
+          Total: total
+        };
+        
+        const compraCollection = collection(db, "compra");  
+        addDoc(compraCollection, compra)
+          .then(({ id }) => console.log(id));
+  
+        clear();
+  
+      };
 
     
-
-
 
     
     const removeFromCart = (e) => {
@@ -41,18 +103,40 @@ const Cart = () =>{
           });
         
     }
+    const calculateTotal = function(movies){
+		let total = 0;
+		movies.map((movie) => {
+			total += movie.qty * movie.price;
+		})
+
+		return total
+	}
+
+	useEffect(() => {		
+		getTotal(calculateTotal(movies));
+        
+	}, [movies]);
+
+    const getTotal = function(orderTotal){
+        
+		setTotal(orderTotal);
+	}
   
-      let total = 0;
+      
       
       
       
     return(
-        <>
+        
+        <div className="contentCart">
+            <div className="compra">
         {movies.length === 0
-         ? <Link to="/" ><h3>No hay nada todavia, hacé click y elegí una peli</h3></Link>
-         : <>{movies.map(movie => {
+         ? <Link to="/" ><p className="choose">No hay nada todavia, hacé click y elegí una peli</p></Link>
+         : <>
+            <h2>Peliculas seleccionadas</h2>
+            {movies.map(movie => {
 
-            total = total + movie.price;
+           
             return(
             <div key={movie.id} className="card">
             <div>
@@ -68,31 +152,44 @@ const Cart = () =>{
          
             
     }
-         
-         
-         
-
-   
-
         {movies.length !== 0 
-        ? <button  className="btnFinalizar">Finalizar compra</button>
+        ? <button  className="btnVaciar" onClick={clear}>Vaciar carrito</button>
         : null}
-        
-        
-        {movies.length !== 0 
-        ? <p><strong>COSTO TOTAL: </strong>${total}</p>
-        : null}
-        
-        {movies.length !== 0 
-        ? <div><button  className="btnVaciar" onClick={clear}>Vaciar carrito</button></div>
-        : null}
+        </div>
+        {movies.length !== 0
+        ? <div className="comprador">
+                <h4>Datos del comprador:</h4>
+                {inputs.map((input) => (
+                  <div key={input.name} >
+                    <label>{input.label}</label>
+                    <input
+                      value={formFields[input.name]}
+                      name={input.name}
+                      type="text"
+                      onChange={ingresarDatos}
+                    />
+                </div>
+                
+                ))}              
+               
+                
+                {movies.length !== 0 
+                ? <p><strong>COSTO TOTAL: </strong> ${calculateTotal(movies)}</p>
+                : null}
+                
+                {movies.length !== 0 
+                ? <button  className="btnFinalizar" onClick={onSubmit} disabled={!(formFields.name && formFields.phone && formFields.email)}>Finalizar compra</button>
+                : null}
+            </div>
+            : null}
 
+            
 
 
               
 
         
-        </>
+        </div>
     )
 }
 

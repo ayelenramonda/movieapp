@@ -5,6 +5,10 @@ Solo registrandose se puede acceder a algunos contenidos gratis.
 
 # Progreso
 
+### `La compra se agrega a firebase`
+
+El pedido que se realiza en el carrito se guarda en la base con precio y cantidad
+
 ### `Cambie API por firebase`
 
 Los datos ahora los trae desde firebase
