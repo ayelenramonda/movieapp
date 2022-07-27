@@ -178,7 +178,7 @@ const Cart = () =>{
                 : null}
                 
                 {movies.length !== 0 
-                ? <button  className="btnFinalizar" onClick={onSubmit} disabled={!(formFields.name && formFields.phone && formFields.email)}>Finalizar compra</button>
+                ? <button  className="btnFinalizar" onClick={onSubmit}>Finalizar compra</button>
                 : null}
             </div>
             : null}
