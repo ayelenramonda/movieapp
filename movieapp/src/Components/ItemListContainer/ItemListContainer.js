@@ -5,7 +5,9 @@ import Loading from "../Loading/Loading"
 import { useParams } from 'react-router-dom'
 import { db } from "../../firebase/firebase"
 import { getDocs, collection, query, where } from "firebase/firestore";
-import Trailer from "../Trailer/Trailer";
+import { cartContext } from "../Context/CartContext";
+import { useContext } from "react";
+
 
 
 
@@ -14,10 +16,13 @@ import Trailer from "../Trailer/Trailer";
 export const ItemListContainer = ({lista, mostrar, greeting}) =>{
 
     const {categoryName} = useParams()
+    const { login } = useContext(cartContext)
     
 
     const [movies, setMovies] = useState ([])
     const [loading, setLoading] = useState (true)
+    const [selectMovie, setSelectMovie] = useState({})
+    const API_IMG ="https://image.tmdb.org/t/p/original"
 
    
     useEffect(() => {
@@ -37,6 +42,7 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
                         }
                     })
             setMovies(lista)
+            setSelectMovie(lista[0])
                 })
                 .catch(err => console.error(err))
                 .finally(()=> setLoading(false))
@@ -74,11 +80,23 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
             {/*<h1>{lista}</h1>
             <button className="btn" onClick={mostrar}>mostrar</button>  */}
            
-            <h1>{}</h1>
-           
+            
+           {loading 
+            ? <Loading /> 
+            :
+                <div className='hero' style={{backgroundImage: `url('${API_IMG}${selectMovie.backdrop_path}')`}}>
+                <div className="heroContent">
+                <h1>{selectMovie.title}</h1>
+                <h3>${selectMovie.price}</h3>
+                <p>{selectMovie.overview}</p>
+                </div>
 
-            {loading ? <Loading /> : <ItemList movies={movies}></ItemList>}
-            <Trailer movies={movies}></Trailer>
+            </div>
+                }
+            {loading 
+            ? <Loading /> 
+            : <ItemList movies={movies} selectMovie={setSelectMovie}></ItemList>}
+            
             
             
             

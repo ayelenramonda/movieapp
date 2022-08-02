@@ -7,15 +7,15 @@ import '../NavBar/navBar.css'
 
 
 const API_IMG ="https://image.tmdb.org/t/p/w500/"
-const List = ({movie}) => {
+const List = ({movie, selectMovie}) => {
     
-
+   
 
     return(
         
         <div className="cards" >
           
-            <img className="imgCards" src={API_IMG+movie.poster_path} alt="poster"></img>              
+           <img onClick={() => selectMovie(movie)} className="imgCards" src={API_IMG+movie.poster_path} alt="poster"></img>      
             <h3>{movie.title}</h3>
             <p>{movie.release_date}</p> 
                 

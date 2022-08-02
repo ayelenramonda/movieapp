@@ -11,7 +11,7 @@ import { collection, addDoc,serverTimestamp} from "firebase/firestore";
 
 
 const Cart = () =>{
-   const { movies, deleteMovie, clear } = useContext(cartContext)
+   const { movies, deleteMovie, clear, /*signup*/ } = useContext(cartContext)
 
    const [ total, setTotal ] = useState(null);
    
@@ -105,9 +105,9 @@ const Cart = () =>{
     }
     const calculateTotal = function(movies){
 		let total = 0;
-		movies.map((movie) => {
-			total += movie.qty * movie.price;
-		})
+		movies.map((movie) => (
+      total += movie.qty * movie.price
+    ))
 
 		return total
 	}

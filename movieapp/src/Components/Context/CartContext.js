@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../firebase/firebase'
 
 export const cartContext = createContext();
 const { Provider } = cartContext;
@@ -8,7 +10,7 @@ const CartCustomProvider = ({ children }) => {
     const [movies, setMovies] = useState([]);
     const [qtyMovies, setQtyMovies] = useState(0);
 
-   const getQtyMovies = () => {
+   /*const getQtyMovies = () => {
         let qty = 0
         movies.forEach(movie => {
             qty += movie.qty
@@ -16,10 +18,20 @@ const CartCustomProvider = ({ children }) => {
         setQtyMovies(qty)
         
     }
-
+*/
     useEffect(() => {
-        getQtyMovies();
+        const getQtyMovies = () => {
+            let qty = 0
+            movies.forEach(movie => {
+                qty += movie.qty
+            })
+            setQtyMovies(qty)
+            
+        }
+        getQtyMovies() 
 
+
+        
     }, [movies])
    
 
@@ -68,8 +80,17 @@ const CartCustomProvider = ({ children }) => {
         setQtyMovies(0)
     }
 
+  
+    const signup = (email, pass) =>{
+        createUserWithEmailAndPassword(auth, email, pass)
+    }
+
+    const login = (email, pass) => {
+        signInWithEmailAndPassword(auth, email, pass)
+    }
+
     return (
-        <Provider value={{ movies, addMovie, deleteMovie, clear, qtyMovies}}>
+        <Provider value={{ movies, addMovie, deleteMovie, clear, qtyMovies, signup, login}}>
             {children}
         </Provider>
     )

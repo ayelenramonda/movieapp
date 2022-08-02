@@ -4,16 +4,20 @@ import Item from "../Cards/Item"
 
 
 
-const ItemList = ({movies}) =>{
+const ItemList = ({movies, selectMovie}) =>{
+    
 
     
     return(
-        
+            
+            
+            
             <div className="cardsContain">
                 
-            {movies.map(movie => (<Item key={movie.id} movie={movie}></Item>))}
+            {movies.map(movie => (<Item key={movie.id} movie={movie} selectMovie={selectMovie} ></Item>))}
                 
             </div>
+            
     )
 }
 
