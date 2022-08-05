@@ -16,7 +16,7 @@ import { useContext } from "react";
 export const ItemListContainer = ({lista, mostrar, greeting}) =>{
 
     const {categoryName} = useParams()
-    const { login } = useContext(cartContext)
+    
     
 
     const [movies, setMovies] = useState ([])
@@ -83,19 +83,20 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
             
            {loading 
             ? <Loading /> 
-            :
+            :<>
                 <div className='hero' style={{backgroundImage: `url('${API_IMG}${selectMovie.backdrop_path}')`}}>
                 <div className="heroContent">
                 <h1>{selectMovie.title}</h1>
                 <h3>${selectMovie.price}</h3>
                 <p>{selectMovie.overview}</p>
                 </div>
+                </div>
+                <ItemList movies={movies} selectMovie={setSelectMovie}></ItemList>
+                </>
 
-            </div>
+            
                 }
-            {loading 
-            ? <Loading /> 
-            : <ItemList movies={movies} selectMovie={setSelectMovie}></ItemList>}
+           
             
             
             

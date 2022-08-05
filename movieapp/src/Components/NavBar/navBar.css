@@ -124,24 +124,26 @@ h1, h2{
 .btnCarrito{
     width: 100%;
     height: 35px;
-    background-color: rgb(116, 15, 116);
+    background-color: rgba(116, 15, 116, 0.5);
     color:white;
     display: none;
-    border: none;
+    border: 1px solid rgba(141, 18, 141, 0.5);
     line-height: 35px;
     align-items: center;
     text-transform: uppercase;
-   
+    margin-bottom: 10px;
 }
 .btnAgregar{
     width: 100%;
     height: 35px;
-    background-color: rgb(116, 15, 116);
+    background-color: rgba(116, 15, 116, 0.507);
+    border: 1px solid rgba(204, 25, 204, 0.5);
     color:white;
     border: none;
     line-height: 35px;
     align-items: center;
     text-transform: uppercase;
+    margin-bottom: 10px;
    
 }
 
@@ -168,6 +170,22 @@ h1, h2{
     text-transform: uppercase;
     margin-top: 30px;
    
+}
+
+.btnLogin{
+    width: 100%;
+    height: 35px;
+    background-color: rgb(177, 92, 165);
+    color:white;
+    border: none;
+    line-height: 35px;
+    align-items: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+   
+}
+.btnLogin:hover{
+    background-color: rgb(141, 71, 131);
 }
 
 .btnFinalizar{
@@ -218,14 +236,14 @@ h1, h2{
 .btnCantidad{
     width: 35px;
     height: 35px;
-    background-color: rgb(38, 0, 109);
+    background-color: rgba(38, 0, 109, 0.5);
     color:white;
     display: flex;
     flex-direction: column;
-    border: none;
-    line-height: 35px;
+    border: solid 1px rgb(70, 35, 136);;
     align-items: center;
     text-transform: uppercase;
+    justify-content: center;
   
 
 }
@@ -259,10 +277,11 @@ h1, h2{
 }
 #carritoVacio, #carritoLleno{
     color:rgb(255, 255, 255);
-    margin-top: 20px;
+    margin: 20px 0 10px 0;
     display: none;
-    background-color: magenta;
+    background-color: rgba(255, 0, 255, 0.486);
     padding: 10px;
+    border: rgba(255, 134, 255, 0.486);
 }
 #carritoLleno{
     background-color: rgb(51, 0, 117);
@@ -272,26 +291,42 @@ h1, h2{
 
 .cards {
     height: 100%;    
-    margin: 5px;
     display: flex;
     flex-direction: column;
 }
 .cardDetail{
     height: 50%;
-    width: 80%;    
     margin: 20px auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     
 
 }
+.details h1{
+    color:white;
+    margin-bottom: 0;
+  }
+  .details h3{
+   
+    margin-top: 0;
+    color:rgb(255, 182, 231);
+  }
+  .details p{
+    color:white;   
+    
+
+  }
+  
 
 .details{
-    height: 300px;    
-    margin: 5px;
+    background-color: #42004471;
+    color: white;
+    padding: 0px 20px 0 20px;
     display: flex;
-    flex-direction:column;
-    width: 50%;
+    flex-direction: column;
+    margin-top: auto;
+    width: 100%;
+    
     
 
 }
@@ -301,17 +336,22 @@ h1, h2{
     height: 100%;   
 }
 .date{
-    color: blueviolet;
+    color: rgb(182, 143, 219);
     font-weight: 700;
     font-size: 14px;
 }
 
 .imgDetails{
-    width: 40%;
-    height:50%;
-    margin: 15px;
+    width: 100%;
+    height: 360px;
+    background-position: center;
+    color: white;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover
 
 }
+
 
 
 .cardsContain{
@@ -321,7 +361,7 @@ h1, h2{
     grid-row-gap: 10px;
     align-items: center;
     box-sizing: border-box;
-    margin:10px;
+    margin-top:10px;
    
     
    
@@ -411,6 +451,7 @@ section {
     width: calc(100% - 40px);
     background-color: #f2e7ff;
     padding:20px;
+    margin-top: 30px;
     
     
   }
@@ -482,12 +523,12 @@ section {
     
   }
   .hero{
-    width: 97%;
+    width: 100%;
     min-height: 300px;
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin: auto;
+    margin: 10px auto 0;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -514,6 +555,8 @@ section {
     color:white;   
     padding:0px 20px 0 20px;
   }
+
+
 
   @media all and (max-width:700px){
     .hero{

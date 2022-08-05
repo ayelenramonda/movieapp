@@ -9,8 +9,8 @@ import { cartContext } from "../Context/CartContext";
 
 
 
-const API_IMG ="https://image.tmdb.org/t/p/w500/"
-export const ItemDetail = ({title, id, poster_path, overview, release_date, category, price}) =>{
+const API_IMG ="https://image.tmdb.org/t/p/original"
+export const ItemDetail = ({title, id, backdrop_path, overview, release_date, category, price}) =>{
     const { movieId } = useParams()
     
     console.log(movieId)
@@ -29,26 +29,30 @@ export const ItemDetail = ({title, id, poster_path, overview, release_date, cate
 
 
     return(
+
+        <div className="imgDetails" style={{backgroundImage: `url('${API_IMG}${backdrop_path}')`}}>
+                <div className="details">
+                <h1>{title}</h1>
+                <span className="date">{release_date}</span>
+                <h3>${price}</h3>
+                <p>{overview}</p>
+                
+                
         
-        <div className="cardDetail">
-            <img  className="imgDetails" src={API_IMG+poster_path} alt="poster"></img>
-            <div className="details">           
-            <h3>{title}</h3>
-            <span className="date">{release_date}</span>
-            <h4>${price}</h4>
+        
             
-            <p>{overview}</p>
             
             {finalizar ? <Link to="/Cart"> <button className="btnAgregar" id="comprar">COMPRAR</button></Link> 
                         : <ItemCount stockTotal={10}  onAdd={onAdd} />
            }
+           </div>
             <div className="duplicados">Este producto ya esta agregado</div>
 
             
             </div>
             
             
-         </div>
+         
         
 
     )

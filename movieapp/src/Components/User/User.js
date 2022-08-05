@@ -13,8 +13,10 @@ export const User = () => {
     const [error, setError] = useState("")
 
     const [user, setUser] = useState ({
+        
         email:'',
         pass:'',
+
     })
 
     const handleChange = evt =>{
@@ -22,15 +24,27 @@ export const User = () => {
 
     }
     const handleOnSubmit = async evt =>{
-        evt.preventDefault()
+        evt.preventDefault()        
         setError('')
         try {
+            
+
+            if(!user.email.trim()){
+                swal("Tenés que completar el usuario")
+                return
+            }
+            if(!user.pass.trim ()){
+                swal("La clave es muy corta")
+                return
+            }
             await signup(user.email, user.pass)
-            swal("El usuario se creo con éxito", `Usuario: ${user.email}`, "success")         
+            swal("El usuario se creo con éxito", `Usuario: ${user.email}`, "success") 
+            evt.target.reset()        
             navigate('/Cart')
             
         } catch (error)  {            
-            console.log(error)
+            console.log(error.message)
+            setError('Server Error')
           }
         
     }
@@ -47,8 +61,8 @@ export const User = () => {
             <h4>Mis datos</h4>
             
         
-        <input type="text" name="email" placeholder="E-mail" onChange={handleChange}></input>
-        <input type="password" name="pass" placeholder="Contraseña" onChange={handleChange}></input>
+        <input type="text" name="email" placeholder="hola@mail.com" onChange={handleChange}></input>
+        <input type="password" name="pass" placeholder="**********" onChange={handleChange}></input>
 
         <button type="submit" className="btnRegistrarme">REGISTRARME</button>
         </form>

@@ -13,6 +13,7 @@ export const Login = () => {
     const [error, setError] = useState("")
 
     const [user, setUser] = useState ({
+        
         email:'',
         pass:'',
     })
@@ -25,12 +26,11 @@ export const Login = () => {
         evt.preventDefault()
         setError('')
         try {
-            await login(user.email, user.pass)
-             
-            navigate('/')
+            await login(user.email, user.pass)             
+            //navigate('/Cart')
             
         } catch (error) {
-            
+            setError('El usuario o la clave son incorrectos')
             console.log(error)
             
         }
@@ -43,17 +43,18 @@ export const Login = () => {
     return(
 
         <>
-        
-        {error && <h3>{error}</h3>}
+        <p>hola</p>
+        {error && <h3>{error}gdgd</h3>}
         <form className="registro" onSubmit={handleOnSubmit}>
             <h4>Ingresá con tu usuario</h4>
             
-        
-        <input type="text" name="email" placeholder="E-mail" onChange={handleChange}></input>
+       
+        <input type="email" name="email" placeholder="E-mail" onChange={handleChange}></input>
         <input type="password" name="pass" placeholder="Contraseña" onChange={handleChange}></input>
 
         <button type="submit" className="btnRegistrarme">INGRESAR</button>
         </form>
+        
         </>
         
         

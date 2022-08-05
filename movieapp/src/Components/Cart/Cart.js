@@ -11,7 +11,7 @@ import { collection, addDoc,serverTimestamp} from "firebase/firestore";
 
 
 const Cart = () =>{
-   const { movies, deleteMovie, clear, /*signup*/ } = useContext(cartContext)
+   const { movies, deleteMovie, clear, user, logout } = useContext(cartContext)
 
    const [ total, setTotal ] = useState(null);
    
@@ -74,6 +74,29 @@ const Cart = () =>{
         clear();
   
       };
+
+      function onSubmitConUser(evt) {
+        swal("Tu pedido se realizó con éxito", `La compra se registró a nombre de ${user.email} ${calculateTotal(movies)}.`,  "success"
+        
+        )
+        clear()
+       
+       
+ 
+       const compra = {
+         Buyer: {Name: user.email},
+         date: serverTimestamp(),
+         Items: movies,
+         Total: total
+       };
+       
+       const compraCollection = collection(db, "compra");  
+       addDoc(compraCollection, compra)
+         .then(({ id }) => console.log(id));
+ 
+       clear();
+ 
+     };
 
     
 
@@ -157,38 +180,44 @@ const Cart = () =>{
         : null}
         </div>
         {movies.length !== 0
-        ? <div className="comprador">
-                <h4>Datos del comprador:</h4>
-                {inputs.map((input) => (
-                  <div key={input.name} >
-                    <label>{input.label}</label>
-                    <input
-                      value={formFields[input.name]}
-                      name={input.name}
-                      type="text"
-                      onChange={ingresarDatos}
-                    />
-                </div>
-                
-                ))}              
-               
-                
-                {movies.length !== 0 
-                ? <p><strong>COSTO TOTAL: </strong> ${calculateTotal(movies)}</p>
-                : null}
-                
-                {movies.length !== 0 
-                ? <button  className="btnFinalizar" onClick={onSubmit}>Finalizar compra</button>
-                : null}
-            </div>
-            : null}
+        ?<>
+              {user === null 
+              ?<>
+                  <div className="comprador">
+                          <h4>Iniciar sesión con mi usuario</h4>
+                          <Link to="../Login"><button className="btnLogin">INICIAR SESIÓN</button></Link>
+                          <h4>Datos del comprador:</h4>
+                          {inputs.map((input) => (
+                            <div key={input.name} >
+                              <label>{input.label}</label>
+                              <input
+                                value={formFields[input.name]}
+                                name={input.name}
+                                type="text"
+                                onChange={ingresarDatos}
+                              />
+                          </div>
+                          
+                          ))}
+                          
+                          
+                        <p><strong>COSTO TOTAL: </strong> ${calculateTotal(movies)}</p>
+                        <button  className="btnFinalizar" onClick={onSubmit}>Finalizar compra</button>
+                        
+                        </div>
+                    </>
 
-            
+                  : <div className="comprador">          
+                  <h4>Datos del comprador:</h4>
+                  <p>Usuario: {user.email}</p>
+                  <p><strong>COSTO TOTAL: </strong> ${calculateTotal(movies)}</p>
+                  <button  className="btnFinalizar" onClick={onSubmitConUser}>Finalizar compra</button>
+                  <button className="btnEliminar" onClick={logout} >SALIR</button>
+                  </div>  
+                  
+              }</>
+        : null }
 
-
-              
-
-        
         </div>
     )
 }
