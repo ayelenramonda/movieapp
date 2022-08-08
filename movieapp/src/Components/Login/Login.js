@@ -2,13 +2,15 @@ import { useState } from "react"
 import '../NavBar/navBar.css'
 import { cartContext } from "../Context/CartContext";
 import { useContext } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import google from '../../assets/g.svg'
+
 
 
 
 export const Login = () => {
 
-    const { login } = useContext(cartContext)
+    const { login, loginGoogle, isInCart } = useContext(cartContext)
     const navigate = useNavigate()
     const [error, setError] = useState("")
 
@@ -27,11 +29,11 @@ export const Login = () => {
         setError('')
         try {
             await login(user.email, user.pass)             
-            //navigate('/Cart')
+           {!isInCart ?  navigate('/') : navigate('/Cart')} 
             
         } catch (error) {
-            setError('El usuario o la clave son incorrectos')
-            console.log(error)
+            setError(error.message)
+            console.log(error.message)
             
         }
         
@@ -40,11 +42,18 @@ export const Login = () => {
     auth/internal-error
     auth/email-already-in-use
     auth/weak-password*/
+
+    const handleGoogle = async () =>{
+        await loginGoogle()
+        navigate('/Cart')
+       
+
+    }
     return(
 
         <>
-        <p>hola</p>
-        {error && <h3>{error}gdgd</h3>}
+       
+        {error ? <div id="carritoVacio">{error}</div> : null}
         <form className="registro" onSubmit={handleOnSubmit}>
             <h4>Ingresá con tu usuario</h4>
             
@@ -53,7 +62,10 @@ export const Login = () => {
         <input type="password" name="pass" placeholder="Contraseña" onChange={handleChange}></input>
 
         <button type="submit" className="btnRegistrarme">INGRESAR</button>
+        <Link  to="/User"><span>Si no estás registrado hacé click acá</span></Link>
         </form>
+
+        <button className="btnGoogle" onClick={handleGoogle}><img src={google} alt="google" />Acceder con Google</button>
         
         </>
         

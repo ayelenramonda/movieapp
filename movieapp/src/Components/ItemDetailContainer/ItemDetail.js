@@ -29,6 +29,7 @@ export const ItemDetail = ({title, id, backdrop_path, overview, release_date, ca
 
 
     return(
+        <>
 
         <div className="imgDetails" style={{backgroundImage: `url('${API_IMG}${backdrop_path}')`}}>
                 <div className="details">
@@ -50,6 +51,8 @@ export const ItemDetail = ({title, id, backdrop_path, overview, release_date, ca
 
             
             </div>
+            
+            </>
             
             
          

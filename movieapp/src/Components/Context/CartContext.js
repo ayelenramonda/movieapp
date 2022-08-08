@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth } from '../../firebase/firebase'
 
 export const cartContext = createContext();
@@ -91,16 +91,23 @@ const CartCustomProvider = ({ children }) => {
 
   
     const signup = (email, pass) =>{
-        createUserWithEmailAndPassword(auth, email, pass)
+         return createUserWithEmailAndPassword(auth, email, pass)
     }
 
     const login = (email, pass) => {
-        signInWithEmailAndPassword(auth, email, pass)
+        return signInWithEmailAndPassword(auth, email, pass)
     }
     const logout = () => signOut(auth)
 
+    const loginGoogle = ()=>{
+        const googleProvider = new GoogleAuthProvider()
+        return signInWithPopup(auth, googleProvider)
+        
+
+    }
+
     return (
-        <Provider value={{ movies, addMovie, deleteMovie, clear, qtyMovies, signup, login, user, logout}}>
+        <Provider value={{ movies, addMovie, deleteMovie, clear, qtyMovies, signup, login, user, logout, loginGoogle, isInCart}}>
             {children}
         </Provider>
     )

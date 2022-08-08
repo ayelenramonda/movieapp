@@ -131,12 +131,12 @@ h1, h2{
     line-height: 35px;
     align-items: center;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    
 }
 .btnAgregar{
     width: 100%;
     height: 35px;
-    background-color: rgba(116, 15, 116, 0.507);
+    background-color: rgba(116, 15, 116, 0.7);
     border: 1px solid rgba(204, 25, 204, 0.5);
     color:white;
     border: none;
@@ -151,12 +151,32 @@ h1, h2{
     width: 100px;
     height: 35px;
     background-color: rgb(116, 15, 116);
+    border: 1px solid #f94bff;
     color:white;
     border: none;
     line-height: 35px;
     align-items: center;
     text-transform: uppercase;
    
+}
+
+.btnLogout{
+  width: 100%;
+  height: 35px;
+  background-color: rgba(29, 37, 80, 0.973);
+  border: 1px solid rgb(126, 106, 216);
+  color:white;
+  border: none;
+  line-height: 35px;
+  align-items: center;
+  text-transform: uppercase;
+  margin-top: 20px;
+ 
+}
+
+.btnLogout:hover{
+  background-color: rgba(0, 21, 141, 0.973);
+
 }
 
 .btnVaciar{
@@ -185,14 +205,13 @@ h1, h2{
    
 }
 .btnLogin:hover{
-    background-color: rgb(141, 71, 131);
+    background-color: rgb(145, 0, 123);
 }
 
 .btnFinalizar{
     width: 100%;
     height: 35px;
-    background: rgb(124,32,118);
-    background: linear-gradient(178deg, rgb(221, 5, 207) 0%, rgba(87,9,121,1) 35%, rgba(30,0,75,1) 100%);
+    background: rgb(124,32,118);    
     color:white;
     border: none;
     line-height: 35px;
@@ -206,7 +225,6 @@ h1, h2{
     width: 150px;
     height: 35px;
     background: rgb(124,32,118);
-    background: linear-gradient(178deg, rgb(221, 5, 207) 0%, rgba(87,9,121,1) 35%, rgba(30,0,75,1) 100%);
     color:white;
     border: none;
     line-height: 35px;
@@ -220,7 +238,7 @@ h1, h2{
     width: 150px;
     height: 35px;
     background: rgb(124,32,118);
-    background: linear-gradient(178deg, rgb(70, 5, 221) 0%, rgb(30, 9, 121) 35%, rgb(16, 0, 61) 100%);
+    background:  rgb(30, 9, 121);
     color:white;
     border: none;
     line-height: 35px;
@@ -236,11 +254,11 @@ h1, h2{
 .btnCantidad{
     width: 35px;
     height: 35px;
-    background-color: rgba(38, 0, 109, 0.5);
+    background-color: rgba(38, 0, 109, 0.699);
     color:white;
     display: flex;
     flex-direction: column;
-    border: solid 1px rgb(70, 35, 136);;
+    border: solid 1px rgb(144, 84, 255);;
     align-items: center;
     text-transform: uppercase;
     justify-content: center;
@@ -397,6 +415,25 @@ h5{
     
 }
 
+.btnGoogle {
+  width: 30%;
+  background-color: white;
+  color:grey;
+  border: 1px solid #999999;
+  display: flex;
+  justify-content: center;
+  height: 45px;
+  align-items: center;
+  margin: 20px auto;
+
+
+}
+.btnGoogle img{
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 0 0;
+}
+
 .cardsContain p{
     font-size: 14px;
     color:rgb(86, 65, 105);
@@ -409,6 +446,7 @@ section {
     display:flex;
     flex-direction: column;
 }
+
 
 
 
@@ -448,12 +486,20 @@ section {
   }
 
   .comprador{
+    height: 100%;
     width: calc(100% - 40px);
     background-color: #f2e7ff;
     padding:20px;
     margin-top: 30px;
     
     
+  }
+  .iconUser{
+    margin-right:10px;
+  }
+  .comprador h5{
+    margin:0;
+    padding: 0;
   }
   .compra{
     width: 100%;
@@ -486,12 +532,25 @@ section {
   }
 
   .registro{
-    width: calc(50% - 40px);
+    width: calc(30% - 40px);
     background-color: #ebe7ff;
     padding:20px;
     margin: 50px auto 0;
     
     
+  }
+
+  .registro a {
+    color:#623399;
+    font-size: 14px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+  
+  }
+  .registro a:hover{
+    color:#000770;
+
   }
   .compra{
     width: 100%;
@@ -517,9 +576,10 @@ section {
     background-color: #a600e7;
   }
 
-  .registro label{
+  .comprador label{
     font-size: 12px;
     color:grey;
+    margin-bottom: 5px;
     
   }
   .hero{
@@ -554,6 +614,23 @@ section {
     background-color: #42004471;
     color:white;   
     padding:0px 20px 0 20px;
+  }
+
+  .footer{
+    width: 100%;
+    background-color: #4e004a;
+    color: white;
+    border-top: solid 3px magenta;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding:10px;
+    
+  }
+  .footer p{
+    color: rgb(255, 173, 251);
+    margin-left: 10px;
   }
 
 

@@ -2,9 +2,14 @@ import React from "react"
 import CartWidget from '../CartWidget/CartWidget'
 import './navBar.css'
 import { Link, NavLink } from "react-router-dom"
+import UserIcon from "../UserIcon/UserIcon"
+import { cartContext } from "../Context/CartContext";
+import { useContext } from "react";
 
 
 const NavBar = () =>{
+
+    const { user } = useContext(cartContext);
 
     const categories =  [
         {name: "Populares", id: 0, route: "/category/popular"},
@@ -23,6 +28,7 @@ const NavBar = () =>{
             
         </ul>
         <Link className="cartNumber" to="/cart"><CartWidget /></Link>
+        {user ? null :  <Link className="" to="/login"><UserIcon /></Link> }
         
         </nav>
        

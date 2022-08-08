@@ -11,6 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 import CartCustomProvider from './Components/Context/CartContext'
+import Footer from './Components/Footer/Footer';
 
 
 const listaContainer = () => console.log("Casablanca, Gladiador, Volver al futuro")  
@@ -33,8 +34,10 @@ function App() {
             <Route path="/movie/:movieId" element={<ItemDetailContain greeting={'My Movie App'}></ItemDetailContain>} />
             <Route path="/Cart" element={<Cart />} />  
             <Route path="/User" element={<User />} /> 
-            <Route path="/Login" element={<Login />} />        
+            <Route path="/Login" element={<Login />} />    
+                
         </Routes>
+        <Footer />
         </CartCustomProvider>
         
   </BrowserRouter> }

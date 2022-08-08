@@ -29,14 +29,6 @@ export const User = () => {
         try {
             
 
-            if(!user.email.trim()){
-                swal("Tenés que completar el usuario")
-                return
-            }
-            if(!user.pass.trim ()){
-                swal("La clave es muy corta")
-                return
-            }
             await signup(user.email, user.pass)
             swal("El usuario se creo con éxito", `Usuario: ${user.email}`, "success") 
             evt.target.reset()        
@@ -44,7 +36,7 @@ export const User = () => {
             
         } catch (error)  {            
             console.log(error.message)
-            setError('Server Error')
+            setError('error.message')
           }
         
     }

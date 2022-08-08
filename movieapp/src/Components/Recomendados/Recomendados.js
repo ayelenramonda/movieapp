@@ -5,9 +5,11 @@ import { useParams } from 'react-router-dom'
 import { db } from "../../firebase/firebase"
 import { getDoc, collection, doc} from "firebase/firestore";
 
-function Trailer(movies) {
+export function Recomendados({title, id, backdrop_path, overview, release_date, category, price, genero}) {
 
-    return
+    return(
+        <h1>{title}</h1>
+    )
 }
 
-export default Trailer
+export default Recomendados

@@ -12,7 +12,7 @@ import { collection, addDoc,serverTimestamp} from "firebase/firestore";
 
 const Cart = () =>{
    const { movies, deleteMovie, clear, user, logout } = useContext(cartContext)
-
+   console.log(user)
    const [ total, setTotal ] = useState(null);
    
       const inputs = [
@@ -76,7 +76,7 @@ const Cart = () =>{
       };
 
       function onSubmitConUser(evt) {
-        swal("Tu pedido se realizó con éxito", `La compra se registró a nombre de ${user.email} ${calculateTotal(movies)}.`,  "success"
+        swal("Tu pedido se realizó con éxito", `La compra se registró a nombre de ${user.displayName} ${user.email}  por un total de: $${calculateTotal(movies)}.`,  "success"
         
         )
         clear()
@@ -209,10 +209,11 @@ const Cart = () =>{
 
                   : <div className="comprador">          
                   <h4>Datos del comprador:</h4>
+                  <h5>{user.displayName}</h5>
                   <p>Usuario: {user.email}</p>
                   <p><strong>COSTO TOTAL: </strong> ${calculateTotal(movies)}</p>
                   <button  className="btnFinalizar" onClick={onSubmitConUser}>Finalizar compra</button>
-                  <button className="btnEliminar" onClick={logout} >SALIR</button>
+                  <button className="btnLogout" onClick={logout} >SALIR</button>
                   </div>  
                   
               }</>
