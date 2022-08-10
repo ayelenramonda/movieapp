@@ -58,7 +58,7 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
     return(
         <section>
                    
-            <div className="textoU">Estás logueado como {user.email}</div>
+            {user ? <div className="textoU">Estás logueado como {user.email}</div> : null }
            {loading 
             ? <Loading /> 
             :<>
