@@ -1,14 +1,79 @@
-import React, {useState, useEffect} from 'react';
-import NavBar from '../NavBar/navBar.css'
-import Loading from "../Loading/Loading"
-import { useParams } from 'react-router-dom'
+import React, {useState, useEffect} from "react";
+import '../NavBar/navBar.css'
 import { db } from "../../firebase/firebase"
-import { getDoc, collection, doc} from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
+import  Loading  from "../Loading/Loading"
 
-export function Recomendados({title, id, backdrop_path, overview, release_date, category, price, genero}) {
+
+
+
+
+
+const API_IMG ="https://image.tmdb.org/t/p/w500/"
+export const Recomendados = () =>{
+    
+    const [movies, setMovies] = useState ([])
+    const [loading, setLoading] = useState (true)
+      
+    useEffect(() => {
+
+        const que = collection(db, 'nuevo')
+
+        getDocs(que)
+        .then ( result => {
+            const lista = result.docs.map(doc => {
+            return{
+                id: doc.id,
+                ...doc.data(),
+                        }
+                    })
+            setMovies(lista)
+            
+                })
+                .catch(err => console.error(err))
+                .finally(()=> setLoading(false))
+            
+    }, );
+
+
+
+  
+   
+    
 
     return(
-        <h1>{title}</h1>
+       
+<div className="cardsContain">
+            {loading 
+            ? <Loading /> 
+            : <>{movies.map(movie => (<div key={movie.id} > 
+                
+                    <div className="cards">
+          
+                    <img className="imgCards" src={API_IMG+movie.poster_path} alt="poster"></img>      
+                    <h3>{movie.title}</h3>
+                    <p>PRÓXIMAMENTE</p> 
+                        
+                           
+                    </div>
+                    
+            
+            
+            
+            
+            
+            </div>))}</>}
+            
+            </div>
+                   
+            
+          
+            
+            
+            
+            
+
+        
     )
 }
 

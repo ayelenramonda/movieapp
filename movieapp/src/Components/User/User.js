@@ -32,23 +32,34 @@ export const User = () => {
             await signup(user.email, user.pass)
             swal("El usuario se creo con éxito", `Usuario: ${user.email}`, "success") 
             evt.target.reset()        
-            navigate('/Cart')
+            navigate('/Login')
             
-        } catch (error)  {            
-            console.log(error.message)
-            setError('error.message')
-          }
+        } catch (error) {
+            if (error.code === "auth/invalid-email"){
+                setError ("El email es inválido")
+            } else if(error.code === "auth/internal-error"){
+                setError("No se puso procesar tu solicitud, intentá de nuevo")
+            } else if (error.code === "auth/weak-password"){
+                setError("La contraseña es débil")
+            } else if (error.code === "auth/user-not-found"){
+                setError("El usuario no existe")
+            } else if(error.code === "auth/wrong-password"){
+                setError("La contraseña es icorrecta")
+            } else if(error.code === "auth/email-already-in-use"){
+                setError("El email ya esta en uso")
+            }
+           
+           
+            
+        }
         
     }
-    /*auth/invalid-email
-    auth/internal-error
-    auth/email-already-in-use
-    auth/weak-password*/
+    
     return(
 
         <>
         
-        {error && <h3>{error}</h3>}
+       
         <form className="registro" onSubmit={handleOnSubmit}>
             <h4>Mis datos</h4>
             
@@ -58,6 +69,8 @@ export const User = () => {
 
         <button type="submit" className="btnRegistrarme">REGISTRARME</button>
         </form>
+        <br></br>
+        {error && <span className="error">{error}</span>}
         </>
         
         

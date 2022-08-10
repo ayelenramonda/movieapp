@@ -28,20 +28,33 @@ export const Login = () => {
         evt.preventDefault()
         setError('')
         try {
-            await login(user.email, user.pass)             
-           {!isInCart ?  navigate('/') : navigate('/Cart')} 
+            await login(user.email, user.pass)  
+                 
+            if (!isInCart){
+                navigate('/')
+            } else {
+                navigate('/Cart')
+
+            }
             
         } catch (error) {
-            setError(error.message)
-            console.log(error.message)
+            if (error.code === "auth/invalid-email"){
+                setError ("El email no existe")
+            } else if(error.code === "auth/internal-error"){
+                setError("No se puso procesar tu solicitud, intentá de nuevo")
+            } else if (error.code === "auth/weak-password"){
+                setError("La contraseña es icorrecta")
+            } else if (error.code === "auth/user-not-found"){
+                setError("El usuario no existe")
+            } else if(error.code === "auth/wrong-password")
+            setError("La contraseña es icorrecta")
+           
+            console.log(error.code)
             
         }
         
     }
-    /*auth/invalid-email
-    auth/internal-error
-    auth/email-already-in-use
-    auth/weak-password*/
+    
 
     const handleGoogle = async () =>{
         await loginGoogle()
@@ -52,8 +65,11 @@ export const Login = () => {
     return(
 
         <>
+
+
+
        
-        {error ? <div id="carritoVacio">{error}</div> : null}
+        
         <form className="registro" onSubmit={handleOnSubmit}>
             <h4>Ingresá con tu usuario</h4>
             
@@ -66,6 +82,7 @@ export const Login = () => {
         </form>
 
         <button className="btnGoogle" onClick={handleGoogle}><img src={google} alt="google" />Acceder con Google</button>
+        {error && <span className="error">{error}</span>}
         
         </>
         

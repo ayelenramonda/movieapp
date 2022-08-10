@@ -59,13 +59,13 @@ const CartCustomProvider = ({ children }) => {
             setMovies([...movies, movie])
         }
     }
-    console.log("carrito", movies)
+    
     
 
     const deleteMovie = (id) => {
         const newCart = movies.filter(movie => movie.id !== (id))
         setMovies(newCart)
-        console.log(id)
+        
         
         
     };
@@ -84,7 +84,7 @@ const CartCustomProvider = ({ children }) => {
     useEffect (() => {
         onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            console.log(currentUser)
+          
         })
 
     }, [])

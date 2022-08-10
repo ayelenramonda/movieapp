@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import Loading from "../Loading/Loading"
 import { db } from "../../firebase/firebase"
 import { getDoc, collection, doc } from "firebase/firestore";
-import Recomendados from "../Recomendados/Recomendados";
+
 
 
 
@@ -13,8 +13,7 @@ import Recomendados from "../Recomendados/Recomendados";
 
 export const ItemDetailContainer = ({greeting}) =>{
 
-    const [movies, setMovies] = useState ([])
-    
+    const [movies, setMovies] = useState ([])    
     const [loading, setLoading] = useState (true)
     
     

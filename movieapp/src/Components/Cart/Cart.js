@@ -12,7 +12,7 @@ import { collection, addDoc,serverTimestamp} from "firebase/firestore";
 
 const Cart = () =>{
    const { movies, deleteMovie, clear, user, logout } = useContext(cartContext)
-   console.log(user)
+   
    const [ total, setTotal ] = useState(null);
    
       const inputs = [
@@ -53,7 +53,7 @@ const Cart = () =>{
      
     
       function onSubmit(evt) {
-         swal("Tu pedido se realizó con éxito", `La compra se registró a nombre de ${formFields.name} ${formFields.surname}. Teléfono: ${formFields.phone} Email: ${formFields.email} por el valor total de ${calculateTotal(movies)}.`,  "success"
+         swal("Tu pedido se realizó con éxito", `La compra se registró a nombre de ${formFields.name} ${formFields.surname}. Teléfono: ${formFields.phone} Email: ${formFields.email} por el valor total de $${calculateTotal(movies)}.`,  "success"
          
          )
          clear()
@@ -76,7 +76,7 @@ const Cart = () =>{
       };
 
       function onSubmitConUser(evt) {
-        swal("Tu pedido se realizó con éxito", `La compra se registró a nombre de ${user.displayName} ${user.email}  por un total de: $${calculateTotal(movies)}.`,  "success"
+        swal("Tu pedido se realizó con éxito", `La compra se registró a nombre del usuario:  ${user.email}  por un total de: $${calculateTotal(movies)}.`,  "success"
         
         )
         clear()
@@ -111,7 +111,7 @@ const Cart = () =>{
             dangerMode: true,
           })
           .then((willDelete) => {
-            console.log("acadeberiaborrar")
+           
             if (willDelete) {
               swal("Lisssto", {
                 icon: "success",
@@ -163,6 +163,7 @@ const Cart = () =>{
             return(
             <div key={movie.id} className="card">
             <div>
+            {movie.backdrop_path}
             <h3>{movie.name}</h3>
             <p>Cantidad seleccionada:<strong> {movie.qty}</strong></p>
             <p>{movie.description}</p>
@@ -213,7 +214,7 @@ const Cart = () =>{
                   <p>Usuario: {user.email}</p>
                   <p><strong>COSTO TOTAL: </strong> ${calculateTotal(movies)}</p>
                   <button  className="btnFinalizar" onClick={onSubmitConUser}>Finalizar compra</button>
-                  <button className="btnLogout" onClick={logout} >SALIR</button>
+                  <button className="btnLogout" onClick={logout} >CERRAR SESIÓN</button>
                   </div>  
                   
               }</>

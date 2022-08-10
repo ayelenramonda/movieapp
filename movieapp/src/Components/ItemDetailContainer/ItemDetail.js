@@ -5,15 +5,23 @@ import { useParams } from 'react-router-dom'
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom'
 import { cartContext } from "../Context/CartContext";
+import Recomendados from "../Recomendados/Recomendados";
+
+
+
+
 
 
 
 
 const API_IMG ="https://image.tmdb.org/t/p/original"
-export const ItemDetail = ({title, id, backdrop_path, overview, release_date, category, price}) =>{
-    const { movieId } = useParams()
-    
+export const ItemDetail = ({title, id, backdrop_path, overview, release_date, category, price,trailer}) =>{
+    const { movieId } = useParams()    
     console.log(movieId)
+
+  
+
+
 
     const [finalizar, setFinalizar] = useState(false)
     const { addMovie } = useContext(cartContext);
@@ -22,7 +30,7 @@ export const ItemDetail = ({title, id, backdrop_path, overview, release_date, ca
         let item = {id: id, name: title, qty: stock, description: overview, price: price};
         addMovie( item );
         setFinalizar(true)
-        console.log(item)
+        
         
           
     }
@@ -37,7 +45,8 @@ export const ItemDetail = ({title, id, backdrop_path, overview, release_date, ca
                 <span className="date">{release_date}</span>
                 <h3>${price}</h3>
                 <p>{overview}</p>
-                
+
+                               
                 
         
         
@@ -51,6 +60,11 @@ export const ItemDetail = ({title, id, backdrop_path, overview, release_date, ca
 
             
             </div>
+            <h2>Nuevas incorporaciones</h2>
+            <Recomendados></Recomendados>
+            
+         
+            
             
             </>
             
