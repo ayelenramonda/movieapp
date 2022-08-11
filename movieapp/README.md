@@ -1,11 +1,11 @@
-# My MovieApp :cinema:
+# My MovieApp :clapper:
 
 Esta App desarrollada para el proyecto de RectJS de Coderhouse, me permite comprar peliculas entre clásicas, populares y nuevas.
 Se puede iniciar sesión para agregar los datos del cliente, o comprar completando un formulario para confirmar la compra.
 
 [Ver el proyecto funcionando](https://clever-elf-9f3adc.netlify.app/)
 
-## Principales interacciones :+1:
+## Principales interacciones :point_left:
 
 -   Navegar por el catálogo de películas clickear en cada imagen y acceder a sus detalles en el top del home, luego con el botn ver mas se puede ir a sus detalles.
 -   Filtrar por tipo de pelicua (populares, clasicas o nuevas).
@@ -16,14 +16,14 @@ Se puede iniciar sesión para agregar los datos del cliente, o comprar completan
 -   Al finalizar la compra, el pedido se guarda en Firebase con los datos del comprador.
 -   El carrito se vacía cuando se completa la compra.
 
-## Capturas del proyecto :desktop_computer:
+## Capturas del proyecto :camera:
 
 ![Home](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra1.png)
 ![Detalle](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra2.png)
 ![Carrito](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra3.png)
 ![Carrito](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra4.png)
 
-## El progreso de clase a clase :nerd_face:
+## El progreso de clase a clase :star:
 
 **`La compra se agrega a firebase`**
 El pedido que se realiza en el carrito se guarda en la base con precio y cantidad
