@@ -3,11 +3,14 @@
 Esta App desarrollada para el proyecto de RectJS de Coderhouse, me permite comprar peliculas entre clásicas, populares y nuevas.
 Se puede iniciar sesión para agregar los datos del cliente, o comprar completando un formulario para confirmar la compra.
 
-['#7c00af'Ver el proyecto funcionando](https://clever-elf-9f3adc.netlify.app/)
+'#7c00af'[Ver el proyecto funcionando](https://clever-elf-9f3adc.netlify.app/)
 
 ## Capturas del proyecto
 
 ![Home](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra1.png)
+![Detalle](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra2.png)
+![Carrito](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra3.png)
+![Carrito](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra4.png)
 
 ## El progreso de clase a clase
 
