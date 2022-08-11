@@ -1,18 +1,29 @@
-# My MovieApp
+# My MovieApp :cinema:
 
 Esta App desarrollada para el proyecto de RectJS de Coderhouse, me permite comprar peliculas entre clásicas, populares y nuevas.
 Se puede iniciar sesión para agregar los datos del cliente, o comprar completando un formulario para confirmar la compra.
 
-'#7c00af'[Ver el proyecto funcionando](https://clever-elf-9f3adc.netlify.app/)
+[Ver el proyecto funcionando](https://clever-elf-9f3adc.netlify.app/)
 
-## Capturas del proyecto
+## Principales interacciones :+1:
+
+-   Navegar por el catálogo de películas clickear en cada imagen y acceder a sus detalles en el top del home, luego con el botn ver mas se puede ir a sus detalles.
+-   Filtrar por tipo de pelicua (populares, clasicas o nuevas).
+-   En el detalle se puede ver la sinopsis, afiche, precio e iniciar la compra, una vez elegida la cantidad.
+-   Se puede registrar un usuario e iniciar sesión para la compra o utilizar un formulario sin estar logueado.
+-   En el carrito se detalla la orden que incluye: pelicula, cantidad,precio unitario y precio total.
+-   Se pueden remover las películas que no se desean comprar.
+-   Al finalizar la compra, el pedido se guarda en Firebase con los datos del comprador.
+-   El carrito se vacía cuando se completa la compra.
+
+## Capturas del proyecto :desktop_computer:
 
 ![Home](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra1.png)
 ![Detalle](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra2.png)
 ![Carrito](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra3.png)
 ![Carrito](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra4.png)
 
-## El progreso de clase a clase
+## El progreso de clase a clase :nerd_face:
 
 **`La compra se agrega a firebase`**
 El pedido que se realiza en el carrito se guarda en la base con precio y cantidad
