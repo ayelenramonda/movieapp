@@ -1,4 +1,4 @@
-## My MovieApp
+# My MovieApp
 
 Esta App desarrollada para el proyecto de RectJS de Coderhouse, me permite comprar peliculas entre clásicas, populares y nuevas.
 Se puede iniciar sesión para agregar los datos del cliente, o comprar completando un formulario para confirmar la compra.
@@ -7,9 +7,9 @@ Se puede iniciar sesión para agregar los datos del cliente, o comprar completan
 
 ## Capturas del proyecto
 
-![Home]()
+![Home](https://github.com/ayelenramonda/movieapp/blob/main/movieapp/src/assets/muestra1.png)
 
-# El progreso de clase a clase
+## El progreso de clase a clase
 
 **`La compra se agrega a firebase`**
 El pedido que se realiza en el carrito se guarda en la base con precio y cantidad
