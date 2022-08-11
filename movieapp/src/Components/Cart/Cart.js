@@ -83,15 +83,15 @@ const Cart = () =>{
        
        
  
-       const compra = {
+       const compraU = {
          Buyer: {Name: user.email},
          date: serverTimestamp(),
          Items: movies,
          Total: total
        };
        
-       const compraCollection = collection(db, "compra");  
-       addDoc(compraCollection, compra)
+       const compraCollection = collection(db, "compraU");  
+       addDoc(compraCollection, compraU)
          .then(({ id }) => console.log(id));
  
        clear();
