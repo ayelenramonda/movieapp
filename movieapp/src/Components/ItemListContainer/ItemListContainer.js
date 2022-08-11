@@ -5,8 +5,7 @@ import Loading from "../Loading/Loading"
 import { useParams } from 'react-router-dom'
 import { db } from "../../firebase/firebase"
 import { getDocs, collection, query, where } from "firebase/firestore";
-import { useContext } from "react";
-import { cartContext } from "../Context/CartContext";
+
 
 
 
@@ -17,7 +16,7 @@ import { cartContext } from "../Context/CartContext";
 export const ItemListContainer = ({lista, mostrar, greeting}) =>{
 
     const {categoryName} = useParams()
-    const { user } = useContext(cartContext)
+    
     
     
 
@@ -58,7 +57,7 @@ export const ItemListContainer = ({lista, mostrar, greeting}) =>{
     return(
         <section>
                    
-            {user ? <div className="textoU">Estás logueado como {user.email}</div> : null }
+           
            {loading 
             ? <Loading /> 
             :<>
